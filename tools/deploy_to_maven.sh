@@ -78,6 +78,9 @@ if [[ $TRAVIS_PULL_REQUEST == "false" ]] ; then
 		# skip tests (they were running already)
 		# skip javadocs generation (already generated)
 		mvn -B -f pom.hadoop2.xml -DskipTests -Dmaven.javadoc.skip=true clean deploy --settings deploysettings.xml; 
+
+		echo "Printing rat output"
+		cat /home/travis/build/stratosphere/stratosphere/target/rat.txt
 	fi
 
 	if [[ $TRAVIS_JOB_NUMBER == *5 ]] && [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $CURRENT_STRATOSPHERE_VERSION == *SNAPSHOT* ]] ; then 
