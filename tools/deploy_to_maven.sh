@@ -77,7 +77,7 @@ if [[ $TRAVIS_PULL_REQUEST == "false" ]] ; then
 		# performance tweaks here: no "clean deploy" so that actually nothing is being rebuild (could cause wrong poms inside the jars?)
 		# skip tests (they were running already)
 		# skip javadocs generation (already generated)
-		mvn -B -f pom.hadoop2.xml -DskipTests -Dmaven.javadoc.skip=true deploy --settings deploysettings.xml; 
+		mvn -B -f pom.hadoop2.xml -DskipTests -Dmaven.javadoc.skip=true clean deploy --settings deploysettings.xml; 
 	fi
 
 	if [[ $TRAVIS_JOB_NUMBER == *5 ]] && [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $CURRENT_STRATOSPHERE_VERSION == *SNAPSHOT* ]] ; then 
